@@ -2,15 +2,16 @@
 include_once('./Layouts/CMSHeader.php');
 include_once('./Layouts/CMSSidebar.php');
 include_once('./Layouts/CMSTopbar.php');
-$list = Category::getList();
-$category_parent = Category::getListParent();
+// $list = Category::getList();
+// $category_parent = Category::getListParent();
+$list = Loai::getList();
 ?>
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
   <!-- Page Heading -->
   <h1 class="h3 mb-2 text-gray-800 d-sm-flex align-items-center justify-content-between mb-4">
-    Tables Category
+  Loai Chung Chi
     <button data-toggle="modal" data-target="#addCategory" class="btn btn-primary btn-icon-split">
       <span class="text">Add New</span>
     </button>
@@ -20,7 +21,7 @@ $category_parent = Category::getListParent();
         <form method="POST" action="<?=Config::$urlbase?>Controllers/CMS/Category.php" enctype="multipart/form-data">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="addCategoryModal">Add Category</h5>
+              <h5 class="modal-title" id="addCategoryModal">Them Loai Chung Chi</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -30,19 +31,6 @@ $category_parent = Category::getListParent();
               <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
-              </div>
-              <div class="form-group">
-                <label for="icon">Icon</label>
-                <input type="file" accept="image/*" class="form-control" id="icon" name="icon" placeholder="Enter icon">
-              </div>
-              <div class="form-group">
-                <label for="parent_id">Parent id</label>
-                <select class="form-control" id="parent_id" name="parent_id" placeholder="Enter name">
-                  <option value="null">None</option>
-                  <?php foreach($category_parent as $key => $value){ ?>
-                  <option value="<?=$value->id?>"><?=$value->name;?></option>  
-                  <?php } ?>
-                </select>
               </div>
             </div>
             <div class="modal-footer">
@@ -68,8 +56,6 @@ $category_parent = Category::getListParent();
             <tr>
               <th>Id</th>
               <th>Name</th>
-              <th>Icon</th>
-              <th>Parent Id</th>
               <th width="120px">Action</th>
 
             </tr>
@@ -78,8 +64,6 @@ $category_parent = Category::getListParent();
             <tr>
               <th>Id</th>
               <th>Name</th>
-              <th>Icon</th>
-              <th>Parent Id</th>
               <th width="120px">Action</th>
             </tr>
           </tfoot>
@@ -88,8 +72,6 @@ $category_parent = Category::getListParent();
               <tr>
                 <td><?= $value->id ?></td>
                 <td><?= $value->name ?></td>
-                <td><img height="50px" src="<?= $value->icon ?>" alt=""></td>
-                <td><?= $value->parent_id ?></td>
                 <td>
                   <button class="btn btn-danger" onclick="confirm('aaa')?deleteCategory(<?=$value->id?>):alert('xxx')" data-id="<?=$value->id?>"><i class="fa fa-trash"></i></button>
                   <button class="btn btn-warning" onclick="editCategory(<?=$value->id?>)" data-id="<?=$value->id?>"><i class="fa fa-pencil-alt"></i></button>

@@ -1,6 +1,6 @@
 <?php
 class Config{
     
-    static public $urlbase = "http://localhost/BasePHP/";
+    static public $urlbase = "http://localhost/NguyenThanhQuy/";
 }
 ?>

@@ -1,6 +1,6 @@
 <!-- active sidebar -->
 <?php 
-    $active = ['Dashboad.php'=>'','Product.php'=>'','Category.php'=>''];
+    $active = ['Dashboad.php'=>'','index.php'=>'','Category.php'=>''];
     foreach($active as $key=> $value){
         if(strpos($_SERVER['REQUEST_URI'],$key) > 0){
             $active[$key] = 'active';
@@ -33,13 +33,13 @@
     <li class="nav-item <?=$active['Category.php']; ?>">
         <a class="nav-link" href="<?=Config::$urlbase?>Views/CMS/Category.php">
             <i class="fas fa-fw fa-table"></i>
-            <span>Category</span></a>
+            <span>Loai Chung chi</span></a>
     </li>
     <!-- Nav Item - Tables -->
-    <li class="nav-item <?=$active['Product.php']; ?>">
-        <a class="nav-link" href="<?=Config::$urlbase?>Views/CMS/Product.php">
+    <li class="nav-item <?=$active['index.php']; ?>">
+        <a class="nav-link" href="<?=Config::$urlbase?>Views/CMS/index.php">
             <i class="fab fa-product-hunt"></i>
-            <span>Product</span></a>
+            <span>Cap Chung Chi</span></a>
     </li>
     
 

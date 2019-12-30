@@ -10,7 +10,7 @@ class DBConnect{
         // Create connection
         $conn= DBConnect::$conn;
         if(!$conn){
-            $conn = new mysqli($servername, $username, $password,"ProjectPHP");
+            $conn = new mysqli($servername, $username, $password,"NguyenThanhQuy");
         }
         // Check connection
         if ($conn->connect_error) {
